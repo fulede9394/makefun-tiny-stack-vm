@@ -8,6 +8,8 @@ function run(p,q){
   if(t===1e6)return T(10);
   if(pc<0||pc>=n)return T(9);
   const o=p[pc];
+  if(o===16){t++;if(s<2)return T(2);D[s-2]=D[s-2]+D[s-1];s--;pc++;continue;}
+  if(o===48){t++;if(pc+2>=n)return T(9);pc=pc+3+((p[pc+1]|p[pc+2]<<8)<<16>>16);continue;}
   if(o<8){
    t++;
    if(o===0)return T(0);
